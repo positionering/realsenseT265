@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/pose-grej.dir/realsense-pose.cpp.o CMakeFiles/pose-grej.dir/cArduino.cpp.o  -o pose-grej -rdynamic /usr/local/lib/librealsense2.so.2.20.0 -Wl,-rpath,/usr/local/lib 
