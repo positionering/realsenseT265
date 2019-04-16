@@ -90,7 +90,7 @@ double last_ts_gyro = 0;
 
         // Initialize gyro_angle with data from gyro
         gyro_angle.x = gyro_data.x; // Pitch
-        gyro_angle.y = gyro_data.y; // Yaw
+        gyro_angle.y = gyro_data.y; // Yaw  
         gyro_angle.z = gyro_data.z; // Roll
 
         // Compute the difference between arrival times of previous and current gyro frames
@@ -253,12 +253,17 @@ int main(int argc, char * argv[]) try
 //							(pose_data.translation.y)*(pose_data.translation.y) + 
 //							(pose_data.translation.z)*(pose_data.translation.z));
 	
+//x Pitch
+//y Yaw
+//z Roll
 	
-	writePipe = (fToString(pose_data.translation.x) + " " + fToString(pose_data.translation.z) + " " + fToString(get_theta().y));
+    writePipe = (fToString(pose_data.translation.x) + " " + fToString(pose_data.translation.y) + " " 
+	             + fToString(pose_data.translation.z) + " " + fToString(get_theta().x) + " " + fToString(get_theta().y) + " " + fToString(get_theta().z) );
 	
 	//writePipe = fToString(pose_data.translation.x) + " " + fToString(pose_data.translation.z);
 	//cout << writePipe << 
-	write(fd, writePipe.c_str(), 2+sizeof(fToString(pose_data.translation.x))+sizeof(fToString(pose_data.translation.x))+sizeof(fToString(get_theta().y)));
+	
+	write(fd, writePipe.c_str(),writePipe.size());
 	close(fd);	   
 	
 	        
